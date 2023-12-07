@@ -1,12 +1,5 @@
 # SignLanguage
 수화 번역 웹사이트
-<p align="center">
-  <br>
-  <img src="./images/common/logo-sample.jpeg">
-  <br>
-</p>
-
-목차
 
 ## 프로젝트 소개
 
