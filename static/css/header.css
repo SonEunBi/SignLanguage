@@ -1,0 +1,55 @@
+label {
+    cursor: pointer;
+}
+
+p {
+    color : #000000;
+}
+header, nav {
+    color: #ffffe0;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav div a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 15px;
+    font-weight: bold;
+    align-self: center;
+}
+
+nav div a.home {
+    float: left;
+}
+
+.login-img {
+    width: 85%;
+}
+
+.inner {
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home {
+    margin-right: auto;
+}
+
+.logout_btn {
+    padding: 7.875px 17px;
+    border-radius: 10px;
+    background-color: #fae100;
+    color: #371d12;
+    font-weight: bold;
+    border: None;
+}

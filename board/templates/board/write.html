@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'board/common.css' %}">
+<link rel="stylesheet" href="{% static 'board/write.css' %}">
+<script src="{% static 'board/js/modify.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="hero text-center text-white main">
+    <div>
+        <h2 class="display-6 mt-3">자유 게시판</h2>
+        
+        <div class="description mb-2">
+            <p class="lead m-0" style="text-align: left;">
+                1. 커뮤니티 매너를 지켜 즐겁게 소통하며, 자유게시판을 적절하게 이용해 주세요.<br/>
+                2. 비회원은 글이나 댓글 작성이 불가능하며, 조회만 가능합니다.
+            </p>
+        </div>
+
+        {% if type == "write" %}
+            <form action="{% url 'board:write' %}" method="post">
+        {% else %}
+            <form action="{% url 'board:modify_post' %}" method="post">   
+        {% endif %}
+                {% csrf_token %}
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title" maxlength="50" value="{{ post.title }}" required>
+                <br>
+            
+                <label for="body">내용</label>
+                <textarea id="body" name="body" rows="4" required>{{ post.body }}</textarea>
+                <br>
+                
+                <div class="my-4">
+                    <a href="/board/?page={{ cur_page }}" class="btn btn-primary" style="margin-right: 5px;">목록</a>
+                    <button {% if type == "write" %}type="submit"{% else %}type="button" onClick="board_modify('{{ post.board_id }}', '{{ cur_page }}')"{% endif %} class="btn btn-primary" style="margin-left:5px;">{% if type == "write" %}작성{% else %}수정{% endif %}</button>
+                </div>
+            </form>
+
+
+    </div>
+</div>
+{% endblock %}
+
